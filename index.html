@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#dff5ff">
+    <title>Для Сони 💌</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Анимированный фон -->
+    <div class="background">
+        <div class="glow glow-blue"></div>
+        <div class="glow glow-pink"></div>
+        <div class="glow glow-white"></div>
+    </div>
+
+    <!-- Частицы -->
+    <div id="particles"></div>
+
+    <main class="container">
+
+        <div class="top-icon">✉️</div>
+
+        <h1>Для Сони</h1>
+
+        <p class="subtitle">
+            Я кое-что тут оставил для тебя...
+        </p>
+
+        <div class="counter">
+            Открыто: <span id="counter">0</span>/4
+        </div>
+
+        <section class="envelopes">
+
+            <!-- Конверт 1 -->
+            <div class="envelope-wrapper" onclick="openLetter(1, this)">
+                <div class="envelope">
+
+                    <div class="envelope-back"></div>
+
+                    <div class="letter-preview">
+                        <span>Привет 👋</span>
+                    </div>
+
+                    <div class="envelope-front"></div>
+
+                    <div class="flap"></div>
+
+                    <div class="seal">💙</div>
+
+                </div>
+
+                <p>Открыть</p>
+            </div>
+
+
+            <!-- Конверт 2 -->
+            <div class="envelope-wrapper" onclick="openLetter(2, this)">
+                <div class="envelope">
+
+                    <div class="envelope-back"></div>
+
+                    <div class="letter-preview">
+                        <span>Сообщение</span>
+                    </div>
+
+                    <div class="envelope-front"></div>
+
+                    <div class="flap"></div>
+
+                    <div class="seal">🩷</div>
+
+                </div>
+
+                <p>Открыть</p>
+            </div>
+
+
+            <!-- Конверт 3 -->
+            <div class="envelope-wrapper" onclick="openLetter(3, this)">
+                <div class="envelope">
+
+                    <div class="envelope-back"></div>
+
+                    <div class="letter-preview">
+                        <span>Важное письмо</span>
+                    </div>
+
+                    <div class="envelope-front"></div>
+
+                    <div class="flap"></div>
+
+                    <div class="seal">💜</div>
+
+                </div>
+
+                <p>Открыть</p>
+            </div>
+
+
+            <!-- Конверт 4 -->
+            <div class="envelope-wrapper" onclick="openLetter(4, this)">
+                <div class="envelope">
+
+                    <div class="envelope-back"></div>
+
+                    <div class="letter-preview">
+                        <span>Последний...</span>
+                    </div>
+
+                    <div class="envelope-front"></div>
+
+                    <div class="flap"></div>
+
+                    <div class="seal">✨</div>
+
+                </div>
+
+                <p>Открыть</p>
+            </div>
+
+        </section>
+
+
+        <!-- Секретный конверт -->
+        <div id="secretContainer" class="secret-container">
+
+            <div class="secret-title">
+                ✨ Ты открыла всё ✨
+            </div>
+
+            <button class="secret-button" onclick="openSecret()">
+                💌 Последний сюрприз
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- Окно письма -->
+    <div id="letterWindow" class="letter-window">
+
+        <div class="paper">
+
+            <button class="close" onclick="closeLetter()">×</button>
+
+            <div class="paper-decoration">✦</div>
+
+            <div id="letterContent"></div>
+
+            <div class="paper-bottom">💙 🩷 🤍</div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Финальный экран -->
+    <div id="finalScreen" class="final-screen">
+
+        <div class="final-content">
+
+            <div class="final-stars">✦ ✧ ✦</div>
+             <h2>Соня ✨</h2>
+
+            <p>
+                Если ты дошла до этого момента,
+                значит, открыла всё.
+            </p>
+
+            <p>
+                Никакого особого повода нет.
+                Просто захотелось немного тебя порадовать :)
+            </p>
+
+            <div class="big-heart">🩷</div>
+
+            <button onclick="closeSecret()">
+                Вернуться
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

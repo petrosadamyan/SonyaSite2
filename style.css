@@ -1,0 +1,1015 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: #46657d;
+
+    background:
+        linear-gradient(
+            135deg,
+            #dff6ff 0%,
+            #ffffff 45%,
+            #ffe1ed 100%
+        );
+}
+
+
+/* =========================
+   ФОН
+========================= */
+
+.background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -5;
+}
+
+.glow {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    filter: blur(70px);
+
+    opacity: 0.45;
+
+    animation: glowMove 10s ease-in-out infinite alternate;
+}
+
+.glow-blue {
+    background: #8edcff;
+
+    top: -100px;
+    left: -100px;
+}
+
+.glow-pink {
+    background: #ffafd0;
+
+    right: -100px;
+    top: 35%;
+
+    animation-delay: 2s;
+}
+
+.glow-white {
+    background: #ffffff;
+
+    bottom: -150px;
+    left: 30%;
+
+    animation-delay: 4s;
+}
+
+
+@keyframes glowMove {
+
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(80px, -40px) scale(1.2);
+    }
+
+    100% {
+        transform: translate(-50px, 70px) scale(0.9);
+    }
+}
+
+
+/* =========================
+   ЧАСТИЦЫ
+========================= */
+
+.particle {
+    position: fixed;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.9);
+
+    pointer-events: none;
+
+    animation:
+        particleFloat linear infinite;
+
+    z-index: -1;
+}
+
+@keyframes particleFloat {
+
+    0% {
+        transform:
+            translateY(110vh)
+            scale(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-10vh)
+            scale(1.4);
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   ОСНОВНОЙ КОНТЕЙНЕР
+========================= */
+
+.container {
+    width: 100%;
+    max-width: 520px;
+
+    margin: auto;
+
+    padding:
+        40px
+        20px
+        80px;
+
+    text-align: center;
+}
+
+
+/* =========================
+   ЗАГОЛОВОК
+========================= */
+
+.top-icon {
+    font-size: 45px;
+
+    margin-bottom: 8px;
+
+    animation:
+        floatingIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatingIcon {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+
+    50% {
+        transform: translateY(-10px) rotate(4deg);
+    }
+}
+
+h1 {
+    font-size: 38px;
+
+    font-weight: 800;
+
+    color: #4384aa;
+
+    text-shadow:
+        0 5px 20px
+        rgba(77, 170, 215, 0.25);
+
+    animation:
+        titleAppear 1s ease;
+}
+
+.subtitle {
+    margin-top: 8px;
+
+    font-size: 17px;
+
+    color: #75899b;
+
+    animation:
+        titleAppear 1.3s ease;
+}
+
+@keyframes titleAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   СЧЁТЧИК
+========================= */
+
+.counter {
+    display: inline-block;
+
+    margin-top: 22px;
+    margin-bottom: 32px;
+
+    padding:
+        8px
+        16px;
+
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    border:
+        1px solid
+        rgba(130, 200, 230, 0.4);
+
+    box-shadow:
+        0 8px 25px
+        rgba(80, 150, 190, 0.1);
+
+    font-size: 14px;
+
+    color: #64849a;
+}
+
+.counter span {
+    font-weight: 800;
+
+    color: #e889b0;
+}
+
+
+/* =========================
+   КОНВЕРТЫ
+========================= */
+
+.envelopes {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 30px;
+}
+
+.envelope-wrapper {
+    cursor: pointer;
+
+    animation:
+        envelopeAppear
+        0.8s
+        cubic-bezier(.2,.8,.2,1)
+        backwards;
+}
+.envelope-wrapper:nth-child(1) {
+    animation-delay: .15s;
+}
+
+.envelope-wrapper:nth-child(2) {
+    animation-delay: .3s;
+}
+
+.envelope-wrapper:nth-child(3) {
+    animation-delay: .45s;
+}
+
+.envelope-wrapper:nth-child(4) {
+    animation-delay: .6s;
+}
+
+@keyframes envelopeAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(40px)
+            scale(.9);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+.envelope-wrapper > p {
+    margin-top: 10px;
+
+    font-size: 14px;
+
+    color: #7791a2;
+
+    opacity: .8;
+}
+
+
+/* =========================
+   САМ КОНВЕРТ
+========================= */
+
+.envelope {
+    position: relative;
+
+    width: 100%;
+    height: 165px;
+
+    border-radius: 22px;
+
+    perspective: 800px;
+
+    filter:
+        drop-shadow(
+            0 15px 20px
+            rgba(65, 130, 165, .16)
+        );
+
+    transition:
+        transform .3s ease;
+}
+
+.envelope-wrapper:hover .envelope {
+    transform:
+        translateY(-7px)
+        rotateX(2deg);
+}
+
+
+/* задняя часть */
+
+.envelope-back {
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #eefaff
+        );
+
+    border:
+        2px solid
+        rgba(130, 205, 235, .5);
+}
+
+
+/* письмо внутри */
+
+.letter-preview {
+    position: absolute;
+
+    left: 8%;
+    right: 8%;
+
+    bottom: 12px;
+
+    height: 125px;
+
+    border-radius: 15px 15px 8px 8px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff,
+            #fff9fc
+        );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    color: #668198;
+
+    box-shadow:
+        0 5px 15px
+        rgba(70, 120, 150, .1);
+
+    transition:
+        transform .6s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* передняя часть */
+
+.envelope-front {
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #a9e4ff,
+            #f8c4db
+        );
+
+    clip-path:
+        polygon(
+            0 42%,
+            50% 76%,
+            100% 42%,
+            100% 100%,
+            0 100%
+        );
+
+    z-index: 4;
+}
+
+
+/* крышка */
+
+.flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #9ddfff,
+            #ffb8d5
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 55%
+        );
+
+    transform-origin: top center;
+
+    z-index: 5;
+
+    transition:
+        transform
+        .65s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* печать */
+
+.seal {
+    position: absolute;
+
+    left: 50%;
+    top: 48%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 52px;
+    height: 52px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, .95);
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+
+    box-shadow:
+        0 5px 15px
+        rgba(70, 130, 160, .2);
+
+    z-index: 10;
+
+    transition:
+        transform .3s ease,
+        opacity .3s ease;
+}
+
+
+/* =========================
+   ОТКРЫТЫЙ КОНВЕРТ
+========================= */
+
+.envelope-wrapper.opened .flap {
+    transform:
+        rotateX(180deg);
+}
+
+.envelope-wrapper.opened .letter-preview {
+    transform:
+        translateY(-65px);
+}
+
+.envelope-wrapper.opened .seal {
+    opacity: 0;
+    transform:
+        translate(-50%, -50%)
+        scale(0);
+}
+
+
+/* =========================
+   ОКНО ПИСЬМА
+========================= */
+
+.letter-window {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(39, 66, 85, .45);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+
+    z-index: 100;
+     opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease;
+}
+
+.letter-window.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =========================
+   БУМАГА
+========================= */
+
+.paper {
+    position: relative;
+
+    width: 100%;
+    max-width: 390px;
+
+    min-height: 330px;
+
+    padding:
+        48px
+        28px
+        35px;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fffafd
+        );
+
+    border:
+        2px solid
+        rgba(255, 190, 215, .55);
+
+    box-shadow:
+        0 30px 80px
+        rgba(20, 65, 95, .3);
+
+    transform:
+        scale(.75)
+        translateY(40px)
+        rotate(-3deg);
+
+    transition:
+        transform .45s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.letter-window.show .paper {
+    transform:
+        scale(1)
+        translateY(0)
+        rotate(0);
+}
+
+
+.paper-decoration {
+    font-size: 35px;
+
+    color: #75c8ed;
+
+    margin-bottom: 10px;
+
+    animation:
+        starSpin 3s linear infinite;
+}
+
+@keyframes starSpin {
+
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.paper h2 {
+    font-size: 27px;
+
+    color: #4c8aad;
+
+    margin-bottom: 18px;
+}
+
+.paper p {
+    font-size: 18px;
+
+    line-height: 1.65;
+
+    color: #617180;
+}
+
+.paper-bottom {
+    margin-top: 25px;
+
+    font-size: 22px;
+
+    letter-spacing: 8px;
+}
+
+
+/* закрыть */
+
+.close {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    width: 40px;
+    height: 40px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: #edf9ff;
+
+    color: #6990a6;
+
+    font-size: 27px;
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        background .3s ease;
+}
+
+.close:hover {
+    transform: rotate(90deg);
+
+    background: #ffe0eb;
+}
+
+
+/* =========================
+   СЕКРЕТ
+========================= */
+
+.secret-container {
+    margin-top: 40px;
+
+    opacity: 0;
+
+    transform:
+        translateY(20px);
+
+    pointer-events: none;
+
+    transition:
+        .6s ease;
+}
+
+.secret-container.visible {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+
+    pointer-events: auto;
+}
+
+.secret-title {
+    font-size: 17px;
+
+    font-weight: 700;
+
+    color: #6d8ba0;
+
+    margin-bottom: 15px;
+}
+
+.secret-button {
+    border: none;
+
+    padding:
+        15px
+        25px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8edcff,
+            #ffb4d2
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px
+        rgba(100, 170, 210, .25);
+
+    animation:
+        buttonPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+}
+
+
+/* =========================
+   ФИНАЛ
+========================= */
+
+.final-screen {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 200;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #bfeaff,
+            #ffffff,
+            #ffd2e5
+        );
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .6s ease,
+        visibility .6s ease;
+}
+
+.final-screen.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.final-content {
+    max-width: 390px;
+
+    text-align: center;
+
+    transform:
+        scale(.8);
+
+    transition:
+        transform .6s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+.final-screen.show .final-content {
+    transform:
+        scale(1);
+}
+
+.final-stars {
+    font-size: 30px;
+
+    color: #77c9ed;
+
+    animation:
+        starSpin 5s linear infinite;
+}
+
+.final-content h2 {
+    margin-top: 20px;
+
+    font-size: 42px;
+
+    color: #4b88a8;
+}
+
+.final-content p {
+    margin-top: 18px;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    color: #657686;
+}
+.big-heart {
+    margin: 25px;
+
+    font-size: 70px;
+
+    animation:
+        heartBeat 1.2s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.final-content button {
+    border: none;
+
+    padding:
+        13px
+        25px;
+
+    border-radius: 25px;
+
+    background: white;
+
+    color: #6591a9;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 25px
+        rgba(60, 130, 165, .15);
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   ВЫЛЕТАЮЩИЕ СЕРДЕЧКИ
+========================= */
+
+.flying {
+    position: fixed;
+
+    pointer-events: none;
+
+    z-index: 300;
+
+    font-size: 20px;
+
+    animation:
+        flyUp 1.2s ease-out forwards;
+}
+
+@keyframes flyUp {
+
+    0% {
+        opacity: 1;
+
+        transform:
+            translate(0, 0)
+            scale(.5)
+            rotate(0);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate(
+                var(--x),
+                -180px
+            )
+            scale(1.4)
+            rotate(180deg);
+    }
+}
+
+
+/* =========================
+   IPHONE
+========================= */
+
+@media (max-width: 390px) {
+
+    .container {
+        padding:
+            30px
+            16px
+            60px;
+    }
+
+    h1 {
+        font-size: 33px;
+    }
+
+    .envelope {
+        height: 150px;
+    }
+
+    .paper {
+        padding:
+            45px
+            23px
+            30px;
+    }
+
+    .paper h2 {
+        font-size: 24px;
+    }
+}
